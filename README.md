@@ -17,3 +17,21 @@ cd ./top_path_to_webloc_dir/
 bash ./webloc2url.sh
 ```
 
+## Example Run
+```
+michi@OSX ~/DATA/Prj/webloc2url $ bash ./webloc2url.sh 
+
+webloc2url.sh Copyright (C) 2015 by mzm
+This program comes with ABSOLUTELY NO WARRANTY; for details see file LICENSE.
+This is free software, and you are welcome to redistribute it
+under certain conditions; see file LICENSE for details.
+
+Found webloc: ./testing/website-link-mac.webloc
+ - Link is: http://www.google.com
+ - Create Windows url file
+
+all done.
+michi@OSX ~/DATA/Prj/webloc2url $ 
+```
+
+File ./testing/website-link-mac.webloc has been convertet to ./testing/website-link-mac.url.
