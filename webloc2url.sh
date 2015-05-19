@@ -79,6 +79,7 @@ while read p; do
 	dot_clean -m $DIR
 
 	LINK=`cat "$p" | grep "string" | sed "s/<string>//" | sed "s/<\/string>//" | sed "s/	//"`
+	## NOTE: last sed contains a TAB caracter
 	echo " - Link is: $LINK"
 
 	#FILEPATH_url_q=$(printf %q "$FILEPATH_url")
