@@ -78,7 +78,7 @@ while read p; do
 	## see: http://en.wikipedia.org/wiki/AppleSingle_and_AppleDouble_formats
 	dot_clean -m $DIR
 
-	LINK=`cat "$p" | grep "string" | sed "s/<string>//" | sed "s/<\/string>//" | sed "s/	//"`
+	LINK=`plutil -convert xml1 -o - "$p" | grep "string" | sed "s/<string>//" | sed "s/<\/string>//" | sed "s/	//"`
 	## NOTE: last sed contains a TAB caracter
 	echo " - Link is: $LINK"
 
