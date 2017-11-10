@@ -70,13 +70,13 @@ while read p; do
 	FILENAME=$(basename "${p}")                    ##     link.webloc
 	FILENAME_BASE=$(basename "$FILENAME" .webloc)  ##     link
 
-	TEMP_FILE=$DIR/temp_link.url.$$.tmp            ## ./some/dir/temp_link.url.2342343.tmp
+	TEMP_FILE="$DIR/temp_link.url.$$.tmp"            ## ./some/dir/temp_link.url.2342343.tmp
 
 	FILEPATH_url="${DIR}/${FILENAME_BASE}.url"     ## ./some/dir/link.url
 
 	## remove any "._XY" files - AppleDouble encoded Macintosh file
 	## see: http://en.wikipedia.org/wiki/AppleSingle_and_AppleDouble_formats
-	dot_clean -m $DIR
+	dot_clean -m "$DIR"
 
 	LINK=`plutil -convert xml1 -o - "$p" | grep "string" | sed "s/<string>//" | sed "s/<\/string>//" | sed "s/	//"`
 	## NOTE: last sed contains a TAB caracter
@@ -87,11 +87,11 @@ while read p; do
 
 	echo " - Create Windows url file"
 
-	echo "[InternetShortcut]" > ${TEMP_FILE}
-	echo "URL=$LINK" >> ${TEMP_FILE}
+	echo "[InternetShortcut]" > "${TEMP_FILE}"
+	echo "URL=$LINK" >> "${TEMP_FILE}"
 
 	#echo "${TEMP_FILE} -> ${FILEPATH_url}"
-	mv ${TEMP_FILE} "${FILEPATH_url}"
+	mv "${TEMP_FILE}" "${FILEPATH_url}"
 
 	echo ""
 
